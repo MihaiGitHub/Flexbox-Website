@@ -68,3 +68,50 @@ img {
 .navbar .logo {
   font-weight: 400;
 }
+
+/* Header */
+.hero {
+  background: url("../images/home/showcase.jpg") no-repeat center center/cover;
+  height: 100vh;
+  position: relative;
+  color: #fff;
+}
+
+/* because the parent has 100vh, can set this child element as height: 100% */
+.hero .content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  height: 100%;
+  padding: 0 20px;
+}
+
+.hero .content h1 {
+  font-size: 55px;
+}
+
+.hero .content p {
+  font-size: 23px;
+  max-width: 600px;
+  margin: 20px 0 30px;
+}
+
+/* Image overlay */
+/* setup pseudo selector which shows up before element */
+/* the parent has position relative so can use position absolute for positioning */
+.hero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0, 0.6);
+}
+
+/* anything inside hero element set index to 10 */
+.hero * {
+  z-index: 10;
+}
